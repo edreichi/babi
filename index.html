@@ -12,12 +12,31 @@
       line-height: 1.8;
       color: #333;
     }
+
+    .page-layout {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .side-gif {
+      width: 100px;
+      height: auto;
+      align-self: flex-start;
+    }
+
+    .main-content {
+      max-width: 900px;
+      flex: 1;
+    }
+
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       margin-bottom: 20px;
     }
+
     .video-container iframe {
       position: absolute;
       top: 0;
@@ -26,38 +45,80 @@
       height: 100%;
       border-radius: 12px;
     }
+
     .message {
-      max-width: 800px;
       background: white;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-      margin: auto;
       white-space: pre-wrap;
+      margin-bottom: 30px;
     }
+
     h1, h2 {
       text-align: center;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 500px;
+      object-fit: contain;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
     }
   </style>
 </head>
 <body>
 
-  <h1>Hi po, click mo nlng yung vid if naka mute T^T </h1>
-  <div class="video-container">
-    <iframe 
-  src="https://www.youtube.com/embed/4rE8DiBj1IU?autoplay=1&mute=1" 
-  frameborder="0" 
-  allow="autoplay; encrypted-media" 
-  allowfullscreen>
-</iframe>
-  </div>
+  <div class="page-layout">
+    <img src="images/left.gif" class="side-gif" alt="Left GIF" />
+    
+    <div class="main-content">
+      <h1>Lyric Video</h1>
 
-  <div class="message">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4rE8DiBj1IU?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+      </div>
 
-    <p>
+      <div class="message">
+        <p>
 Hi, sorry for my messages kagabi, I was really wasted. 
 
-After pondering on my feelings right now. I think I realize na healing myself is undoubtedly, my priority over everything else. And I won't be able to do that when I'm too fixated sa girl na I love. I just couldn't help myself whenever I think of the possibility na you might be with someone else other than me. Masakit and mabigat po sa chest. Everyday would seem like im holding onto a thin thread hoping na it wouldn't break. I'm too in love to continue this setup saatin. I cannot lie to myself anymore kase miss na miss na kita not just as val, but as my babi. my love. my everything. 
+After pondering on my feelings right now. I think I realize na healing myself is undoubtedly, my priority over everything else. And I won't be able to do that when I'm too fixated sa girl na I love. I just couldn't help myself whenever I think of the possibility na you might be with someone else other than me. Masakit and mabigat po sa chest. Everyday would seem like im holding onto a thin thread hoping na it wouldnt break. I'm too in love to continue this setup saatin. I cannot lie to myself anymore kase miss na miss na kita not just as val, but as my babi. my love. my everything. 
 
 pero sadly, despite everything we exhausted, i guess fate just really is too cruel to let us be together. So I'm letting us go. letting you go. Whatever may come your way, I will support you po, and I will always pray, always love you from afar. If you ever think na life is getting too hard, hit me up ganun, baka namiss ko yung isang day na di ka nasama sa prayer kasi nakatulog sa puyat kaya ganun. 
 
@@ -72,9 +133,57 @@ you might think na ironic yung song pero i will always be here to stay, though a
 
 maybe someday, we can reignite the candles of our emotions towards each other uli. I have so much to tell you pa. Pero next time nlng siguro if ever our fate meets again ^^
 
-Goodbye my love, my cayle, my valerie, my babi.
-    </p>
+Goodbye my love, my cayle, my valerie, my babi. 
+        </p>
+      </div>
+
+      <!-- Slideshow -->
+      <div class="slideshow-container">
+        <div class="mySlides fade"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="mySlides fade"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <div class="mySlides fade"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="mySlides fade"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="mySlides fade"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="mySlides fade"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="mySlides fade"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="mySlides fade"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="mySlides fade"><img src="images/photo9.jpg" alt="Photo 9"></div>
+        <div class="mySlides fade"><img src="images/photo10.jpg" alt="Photo 10"></div>
+        <div class="mySlides fade"><img src="images/photo11.jpg" alt="Photo 11"></div>
+        <div class="mySlides fade"><img src="images/photo12.jpg" alt="Photo 12"></div>
+        <div class="mySlides fade"><img src="images/photo13.jpg" alt="Photo 13"></div>
+        <div class="mySlides fade"><img src="images/photo14.jpg" alt="Photo 14"></div>
+        <div class="mySlides fade"><img src="images/photo15.jpg" alt="Photo 15"></div>
+        <div class="mySlides fade"><img src="images/photo16.jpg" alt="Photo 16"></div>
+        <div class="mySlides fade"><img src="images/photo17.jpg" alt="Photo 17"></div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+    </div>
+
+    <img src="images/right.gif" class="side-gif" alt="Right GIF" />
   </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
