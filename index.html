@@ -29,16 +29,36 @@
       flex-wrap: wrap;
     }
 
+    /* Remove side GIFs since we moved them to header */
     .side-gif {
-      width: 60px;
-      height: auto;
-      object-fit: contain;
+      display: none;
     }
 
     .main-content {
       flex: 1 1 100%;
       max-width: 900px;
       padding: 10px;
+    }
+
+    /* Header container with GIFs */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header-container h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .header-gif {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+      user-select: none;
     }
 
     .video-container {
@@ -67,11 +87,6 @@
       margin-bottom: 30px;
       font-size: 1rem;
       white-space: pre-wrap;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
     }
 
     .slideshow-container {
@@ -113,19 +128,19 @@
     }
 
     @media (max-width: 768px) {
-      .side-gif {
-        display: none;
+      .header-container {
+        gap: 10px;
       }
-
-      .main-content {
-        padding: 0;
+      .header-container h1 {
+        font-size: 1.5rem;
       }
-
+      .header-gif {
+        width: 30px;
+      }
       .message {
         font-size: 0.95rem;
         padding: 15px;
       }
-
       .prev, .next {
         font-size: 20px;
         padding: 10px;
@@ -136,10 +151,14 @@
 <body>
 
   <div class="page-layout">
-    <img src="images/left.gif" class="side-gif" alt="Left GIF" />
 
     <div class="main-content">
-      <h1>Lyric Video</h1>
+      <!-- Header with GIFs -->
+      <div class="header-container">
+        <img src="images/left.gif" alt="Left GIF" class="header-gif" />
+        <h1>Lyric Video</h1>
+        <img src="images/right.gif" alt="Right GIF" class="header-gif" />
+      </div>
 
       <div class="video-container">
         <iframe
@@ -166,7 +185,9 @@ You made me feel na despite my shattered persona, I was still loved unconditiona
 
 you might think na ironic yung song pero i will always be here to stay, though apart, know that someone loved, someone loves and someone will always love you and that's your babi from baguio.
 
-maybe someday, we can reignite the candles of our emotions towards each other uli. I have so much to tell you pa. Pero next time nlng siguro if ever our fate meets again ^^
+correction sa part na im supporting the idea na lets have time apart kase there's nowhere else I rather be than being beside you always. tbh this week nga sana yung biyahe. T^T. anw I wanna hold on nlng din sa Psalms 37:4-5 ^^
+
+maybe someday, we can reignite the candles of our love towards each other uli. I have so much to tell you pa. Pero next time nlng siguro if ever our fates meet again ^^
 
 Goodbye my love, my cayle, my valerie, my babi. 
         </p>
@@ -195,7 +216,6 @@ Goodbye my love, my cayle, my valerie, my babi.
       </div>
     </div>
 
-    <img src="images/right.gif" class="side-gif" alt="Right GIF" />
   </div>
 
   <script>
