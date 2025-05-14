@@ -11,23 +11,25 @@
       background: #B0E0E6; /* powder blue */
       line-height: 1.8;
       color: #333;
+      margin: 0;
     }
 
     .page-layout {
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .side-gif {
       width: 100px;
       height: auto;
-      align-self: flex-start;
     }
 
     .main-content {
       max-width: 900px;
       flex: 1;
+      min-width: 300px;
     }
 
     .video-container {
@@ -55,8 +57,9 @@
       margin-bottom: 30px;
     }
 
-    h1, h2 {
+    h1 {
       text-align: center;
+      font-size: 28px;
     }
 
     /* Slideshow */
@@ -81,24 +84,48 @@
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: auto;
       padding: 16px;
       color: white;
       font-weight: bold;
       font-size: 24px;
-      border-radius: 0 3px 3px 0;
       user-select: none;
       transform: translateY(-50%);
       background-color: rgba(0,0,0,0.5);
+      border-radius: 3px;
     }
 
     .next {
       right: 0;
-      border-radius: 3px 0 0 3px;
     }
 
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .page-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-gif {
+        display: none; /* You can change to block if you want them stacked */
+      }
+
+      .message {
+        padding: 20px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .prev, .next {
+        font-size: 20px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -139,21 +166,10 @@ Goodbye my love, my cayle, my valerie, my babi.
 
       <!-- Slideshow -->
       <div class="slideshow-container">
-        <div class="mySlides fade"><img src="images/photo3.jpg" alt="Photo 3"></div>
-        <div class="mySlides fade"><img src="images/photo4.jpg" alt="Photo 4"></div>
-        <div class="mySlides fade"><img src="images/photo5.jpg" alt="Photo 5"></div>
-        <div class="mySlides fade"><img src="images/photo6.jpg" alt="Photo 6"></div>
-        <div class="mySlides fade"><img src="images/photo7.jpg" alt="Photo 7"></div>
-        <div class="mySlides fade"><img src="images/photo8.jpg" alt="Photo 8"></div>
-        <div class="mySlides fade"><img src="images/photo9.jpg" alt="Photo 9"></div>
-        <div class="mySlides fade"><img src="images/photo10.jpg" alt="Photo 10"></div>
-        <div class="mySlides fade"><img src="images/photo11.jpg" alt="Photo 11"></div>
-        <div class="mySlides fade"><img src="images/photo12.jpg" alt="Photo 12"></div>
-        <div class="mySlides fade"><img src="images/photo13.jpg" alt="Photo 13"></div>
-        <div class="mySlides fade"><img src="images/photo14.jpg" alt="Photo 14"></div>
-        <div class="mySlides fade"><img src="images/photo15.jpg" alt="Photo 15"></div>
-        <div class="mySlides fade"><img src="images/photo16.jpg" alt="Photo 16"></div>
-
+        <!-- Replace these with your 17 photos -->
+        <div class="mySlides fade"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="mySlides fade"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <!-- ... up to photo17.jpg -->
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
       </div>
@@ -171,11 +187,10 @@ Goodbye my love, my cayle, my valerie, my babi.
     }
 
     function showSlides(n) {
-      let i;
       let slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slides[slideIndex-1].style.display = "block";
