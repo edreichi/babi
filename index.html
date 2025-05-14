@@ -3,44 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no">
   <title>Lyric Video Page</title>
   <style>
-    /* Base Layout */
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
-      width: 100% !important;
-      max-width: 100% !important;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #B0E0E6;
-      line-height: 1.8;
-      color: #333;
       margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #B0E0E6;
+      color: #333;
+      line-height: 1.6;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .page-layout {
       display: flex;
       justify-content: center;
       gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
     }
 
     .side-gif {
       width: 100px;
       height: auto;
-      align-self: flex-start;
     }
 
     .main-content {
+      flex: 1 1 100%;
       max-width: 900px;
-      flex: 1;
+      padding: 10px;
     }
 
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
+      overflow: hidden;
+      border-radius: 12px;
       margin-bottom: 20px;
-      width: 100%;
     }
 
     .video-container iframe {
@@ -49,20 +55,22 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
+      border: 0;
     }
 
     .message {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-      white-space: pre-wrap;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       margin-bottom: 30px;
+      font-size: 1rem;
+      white-space: pre-wrap;
     }
 
-    h1, h2 {
+    h1 {
       text-align: center;
+      margin-bottom: 20px;
     }
 
     /* Slideshow */
@@ -78,61 +86,50 @@
 
     .mySlides img {
       width: 100%;
-      border-radius: 12px;
       max-height: 500px;
       object-fit: contain;
+      border-radius: 12px;
     }
 
     .prev, .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: auto;
       padding: 16px;
       color: white;
       font-weight: bold;
       font-size: 24px;
-      border-radius: 0 3px 3px 0;
+      background-color: rgba(0, 0, 0, 0.5);
       user-select: none;
       transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
     }
 
     .next {
       right: 0;
-      border-radius: 3px 0 0 3px;
     }
 
     .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
-    /* Mobile Responsiveness */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .page-layout {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
       .side-gif {
         display: none;
       }
 
       .main-content {
-        width: 100%;
-        padding: 0 10px;
+        padding: 0;
       }
 
       .message {
-        padding: 20px;
-        font-size: 16px;
-        width: 100%;
+        font-size: 0.95rem;
+        padding: 15px;
       }
 
-      .video-container {
-        padding-bottom: 56.25%;
-        height: 0;
-        width: 100%;
+      .prev, .next {
+        font-size: 20px;
+        padding: 10px;
       }
     }
   </style>
@@ -148,10 +145,9 @@
       <div class="video-container">
         <iframe
           src="https://www.youtube.com/embed/4rE8DiBj1IU?autoplay=1&mute=1&playsinline=1"
-          frameborder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
+          allowfullscreen
+        ></iframe>
       </div>
 
       <div class="message">
@@ -177,7 +173,6 @@ Goodbye my love, my cayle, my valerie, my babi.
         </p>
       </div>
 
-      <!-- Slideshow -->
       <div class="slideshow-container">
         <div class="mySlides fade"><img src="images/photo1.jpg" alt="Photo 1"></div>
         <div class="mySlides fade"><img src="images/photo2.jpg" alt="Photo 2"></div>
@@ -214,17 +209,16 @@ Goodbye my love, my cayle, my valerie, my babi.
     }
 
     function showSlides(n) {
-      let i;
       const slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+      for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slides[slideIndex - 1].style.display = "block";
     }
 
-    // Auto-show the first slide on load
+    // Initial show
     window.onload = () => {
       showSlides(slideIndex);
     };
