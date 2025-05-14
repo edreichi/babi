@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lyric Video Page</title>
   <style>
-    body {
+    /* Base Layout */
+    html, body {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
       padding: 20px;
-      background: #B0E0E6; /* powder blue */
+      background: #B0E0E6;
       line-height: 1.8;
       color: #333;
       margin: 0;
@@ -18,18 +22,17 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
     .side-gif {
       width: 100px;
       height: auto;
+      align-self: flex-start;
     }
 
     .main-content {
       max-width: 900px;
       flex: 1;
-      min-width: 300px;
     }
 
     .video-container {
@@ -37,6 +40,7 @@
       padding-bottom: 56.25%;
       height: 0;
       margin-bottom: 20px;
+      width: 100%;
     }
 
     .video-container iframe {
@@ -57,9 +61,8 @@
       margin-bottom: 30px;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 28px;
     }
 
     /* Slideshow */
@@ -84,47 +87,52 @@
       cursor: pointer;
       position: absolute;
       top: 50%;
+      width: auto;
       padding: 16px;
       color: white;
       font-weight: bold;
       font-size: 24px;
+      border-radius: 0 3px 3px 0;
       user-select: none;
       transform: translateY(-50%);
       background-color: rgba(0,0,0,0.5);
-      border-radius: 3px;
     }
 
     .next {
       right: 0;
+      border-radius: 3px 0 0 3px;
     }
 
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
     }
 
-    /* Mobile Responsive */
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .page-layout {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
       }
 
       .side-gif {
-        display: none; /* You can change to block if you want them stacked */
+        display: none;
+      }
+
+      .main-content {
+        width: 100%;
+        padding: 0 10px;
       }
 
       .message {
         padding: 20px;
         font-size: 16px;
+        width: 100%;
       }
 
-      h1 {
-        font-size: 24px;
-      }
-
-      .prev, .next {
-        font-size: 20px;
-        padding: 12px;
+      .video-container {
+        padding-bottom: 56.25%;
+        height: 0;
+        width: 100%;
       }
     }
   </style>
@@ -133,12 +141,17 @@
 
   <div class="page-layout">
     <img src="images/left.gif" class="side-gif" alt="Left GIF" />
-    
+
     <div class="main-content">
       <h1>Lyric Video</h1>
 
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/4rE8DiBj1IU?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/4rE8DiBj1IU?autoplay=1&mute=1&playsinline=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
       </div>
 
       <div class="message">
@@ -166,10 +179,24 @@ Goodbye my love, my cayle, my valerie, my babi.
 
       <!-- Slideshow -->
       <div class="slideshow-container">
-        <!-- Replace these with your 17 photos -->
         <div class="mySlides fade"><img src="images/photo1.jpg" alt="Photo 1"></div>
         <div class="mySlides fade"><img src="images/photo2.jpg" alt="Photo 2"></div>
-        <!-- ... up to photo17.jpg -->
+        <div class="mySlides fade"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="mySlides fade"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="mySlides fade"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="mySlides fade"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="mySlides fade"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="mySlides fade"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="mySlides fade"><img src="images/photo9.jpg" alt="Photo 9"></div>
+        <div class="mySlides fade"><img src="images/photo10.jpg" alt="Photo 10"></div>
+        <div class="mySlides fade"><img src="images/photo11.jpg" alt="Photo 11"></div>
+        <div class="mySlides fade"><img src="images/photo12.jpg" alt="Photo 12"></div>
+        <div class="mySlides fade"><img src="images/photo13.jpg" alt="Photo 13"></div>
+        <div class="mySlides fade"><img src="images/photo14.jpg" alt="Photo 14"></div>
+        <div class="mySlides fade"><img src="images/photo15.jpg" alt="Photo 15"></div>
+        <div class="mySlides fade"><img src="images/photo16.jpg" alt="Photo 16"></div>
+        <div class="mySlides fade"><img src="images/photo17.jpg" alt="Photo 17"></div>
+
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
       </div>
@@ -187,14 +214,20 @@ Goodbye my love, my cayle, my valerie, my babi.
     }
 
     function showSlides(n) {
-      let slides = document.getElementsByClassName("mySlides");
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
       if (n > slides.length) { slideIndex = 1 }
       if (n < 1) { slideIndex = slides.length }
-      for (let i = 0; i < slides.length; i++) {
+      for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-      slides[slideIndex-1].style.display = "block";
+      slides[slideIndex - 1].style.display = "block";
     }
+
+    // Auto-show the first slide on load
+    window.onload = () => {
+      showSlides(slideIndex);
+    };
   </script>
 
 </body>
