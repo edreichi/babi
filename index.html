@@ -30,8 +30,9 @@
     }
 
     .side-gif {
-      width: 100px;
+      width: 60px;
       height: auto;
+      object-fit: contain;
     }
 
     .main-content {
@@ -73,7 +74,6 @@
       margin-bottom: 20px;
     }
 
-    /* Slideshow */
     .slideshow-container {
       position: relative;
       max-width: 100%;
@@ -112,7 +112,6 @@
       background-color: rgba(0, 0, 0, 0.8);
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 768px) {
       .side-gif {
         display: none;
@@ -140,7 +139,7 @@
     <img src="images/left.gif" class="side-gif" alt="Left GIF" />
 
     <div class="main-content">
-      <h1>pa unmute nlng po if naka mute yung song </h1>
+      <h1>Lyric Video</h1>
 
       <div class="video-container">
         <iframe
@@ -174,6 +173,8 @@ Goodbye my love, my cayle, my valerie, my babi.
       </div>
 
       <div class="slideshow-container">
+        <!-- Removed blank slides #1, #2, and #17 -->
+
         <div class="mySlides fade"><img src="images/photo3.jpg" alt="Photo 3"></div>
         <div class="mySlides fade"><img src="images/photo4.jpg" alt="Photo 4"></div>
         <div class="mySlides fade"><img src="images/photo5.jpg" alt="Photo 5"></div>
@@ -215,7 +216,6 @@ Goodbye my love, my cayle, my valerie, my babi.
       slides[slideIndex - 1].style.display = "block";
     }
 
-    // Initial show
     window.onload = () => {
       showSlides(slideIndex);
     };
